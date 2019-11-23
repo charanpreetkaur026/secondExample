@@ -15,6 +15,7 @@ import android.widget.EditText;
 import static androidx.core.os.LocaleListCompat.create;
 
 public class firstActivity extends AppCompatActivity implements View.OnClickListener {
+   // public  static final String
     private EditText edtName;
     private Button btnGoNext;
 
@@ -45,7 +46,7 @@ public class firstActivity extends AppCompatActivity implements View.OnClickList
             startActivity(mIntent);
         }else
         {
-            //edtName.setError("Please Enter Name");
+            edtName.setError("Please Enter Name");
             showAlert();
         }
     }
@@ -55,7 +56,7 @@ public class firstActivity extends AppCompatActivity implements View.OnClickList
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
         alertDialogBuilder.setIcon(R.drawable.ic_launcher_background);
         alertDialogBuilder.setTitle("Login Error");
-        alertDialogBuilder.setMessage("");
+        alertDialogBuilder.setMessage("Please enter your name!!!");
         alertDialogBuilder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
@@ -64,6 +65,6 @@ public class firstActivity extends AppCompatActivity implements View.OnClickList
         });
         alertDialogBuilder.setNegativeButtonIcon(getResources().getDrawable(R.drawable.ic_launcher_foreground));
         AlertDialog mAlertDialog = alertDialogBuilder.create();
-        mAlertDialog.create();
+        mAlertDialog.show();
     }
 }
