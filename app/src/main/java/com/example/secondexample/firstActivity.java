@@ -6,18 +6,25 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
-
-import static androidx.core.os.LocaleListCompat.create;
+import android.widget.Switch;
+import android.widget.TextView;
+import android.widget.ToggleButton;
 
 public class firstActivity extends AppCompatActivity implements View.OnClickListener {
    // public  static final String
     private EditText edtName;
     private Button btnGoNext;
+    private ToggleButton toggleButton;
+    private TextView txtChangeColor;
+    private Switch switchRem;
+    private TextView txtSwicthColor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,13 +32,44 @@ public class firstActivity extends AppCompatActivity implements View.OnClickList
         setContentView(R.layout.activity_first);
         edtName = findViewById(R.id.edtName);
         btnGoNext = findViewById(R.id.btnNext);
+        toggleButton =findViewById(R.id.toggleBtn);
+        txtChangeColor = findViewById(R.id.txtColor);
+        switchRem = findViewById(R.id.switchRemember);
+        
 //        //.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
 //
 //            }
 //        });
+        switchRem.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked)
+                {
+                    txtChangeColor.setBackgroundColor(Color.YELLOW);
+                    txtChangeColor.setTextColor(Color.BLUE);
+                }else{
+                    txtChangeColor.setBackgroundColor(Color.GREEN);
+                    txtChangeColor.setTextColor(Color.RED);
+                }
+            }
+        });
+
         btnGoNext.setOnClickListener(this);
+        toggleButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked)
+                {
+                    txtChangeColor.setBackgroundColor(Color.YELLOW);
+                    txtChangeColor.setTextColor(Color.BLUE);
+                }else{
+                    txtChangeColor.setBackgroundColor(Color.GREEN);
+                    txtChangeColor.setTextColor(Color.RED);
+                }
+            }
+        });
 
     }
 
