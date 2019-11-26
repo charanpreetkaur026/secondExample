@@ -3,12 +3,15 @@ package com.example.secondexample;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
@@ -26,22 +29,34 @@ public class firstActivity extends AppCompatActivity implements View.OnClickList
     private Switch switchRem;
     private TextView txtSwicthColor;
 
+
+    // onCreate()
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.d("Activity 1","onCreate invoked");
         setContentView(R.layout.activity_first);
         edtName = findViewById(R.id.edtName);
         btnGoNext = findViewById(R.id.btnNext);
         toggleButton =findViewById(R.id.toggleBtn);
         txtChangeColor = findViewById(R.id.txtColor);
         switchRem = findViewById(R.id.switchRemember);
-        
+
 //        //.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
 //
 //            }
 //        });
+//        if (savedInstanceState == null){
+//            PracticeFragment practiceFragment = new PracticeFragment();
+//            FragmentManager fragmentManager = getSupportFragmentManager();
+//            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+//            fragmentTransaction.add(R.id.toggleBtn,practiceFragment);
+//            fragmentTransaction.addToBackStack(null);
+//            fragmentTransaction.commit();
+//
+//        }
         switchRem.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -71,6 +86,44 @@ public class firstActivity extends AppCompatActivity implements View.OnClickList
             }
         });
 
+    }
+    //onStart
+
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.d("Activity 1","onStart invoked");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d("Activity 1", "onResume invoked");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.d("Activity 1", "onPause invoked");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.d("Activity 1", "onStop invoked");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.d("Activity 1", "onDestroy invoked");
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        Log.d("Activity 1", "onRestart invoked");
     }
 
     @Override
